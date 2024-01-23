@@ -1,0 +1,59 @@
+.checkbox {
+	position: relative;
+	width: 15px;
+	height: 15px;
+	border: 1px solid #000;
+	border-radius: 2px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	input {
+		opacity: 0;
+		position: absolute;
+		inset: 0;
+		cursor: pointer;
+		z-index: 2;
+	}
+	.checked {
+		background: #000;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		position: relative;
+		transition: 0.1s ease;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&::before {
+			content: "•";
+			width: 100%;
+			height: 100%;
+			font-size: 1rem;
+			padding: 2px;
+			color: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		&-all {
+			&::before {
+				content: "✔";
+				font-size: 0.8rem;
+			}
+		}
+		&-notAll {
+      opacity: 1;
+			&::before {
+				font-size: 0.8rem;
+			}
+		}
+	}
+
+	input[type="checkbox"]:checked + .checked {
+		opacity: 1;
+	}
+}
+
+.label {
+	font-size: 0.8rem;
+}
